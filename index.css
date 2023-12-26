@@ -1,0 +1,1023 @@
+.html {
+    scroll-behavior: smooth;
+}
+
+main {
+    position: absolute;
+    height: 5px;
+    width: 100%;
+}
+body {
+background-size: 400%, 400%;
+background: fixed; 
+background-color: #14021a;
+background-image: linear-gradient(58deg, #14021a 0%, #340250 100%);
+    overflow: hidden;
+    scrollbar-darkshadow-color: #151515;
+    overflow-y: scroll;
+    overflow-x: hidden; 
+/*Animação: Some e Aparece no estilo fade de 0.3segundos;*/
+}
+@keyframes anim {
+    0% {
+        background-position: 0%;
+    }                                      /*Background e Animação*/
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+ul {
+    padding: 0 !important;
+}
+/* Código da barra lateral para rolamento */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: black;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    background: #810CA8;
+}
+
+/* Inicio do site parte superior de navegação */
+
+.navegador {
+    background-color: none;
+    height: 90px;
+    width: 100%;
+}
+
+.logo {
+    position: relative;
+    top: 8px;
+    left: 100px;
+    height: 40px;
+    width: 100%px;
+}
+
+.logo-area {
+    position: relative;
+    top: 7px;
+    height: 60px;
+    width: 250px;
+    background-color: none;
+}
+
+/* Area da pesquisa de busca */
+
+.search-bar {
+    background-color: none;
+    position: relative;
+    background-color: none;
+    height: 60px;
+    width: 250px;
+    left: 1070px;
+    top: -43px;
+}
+
+.search {
+    position: center;
+	display: inline-flex;
+	align-items: center;
+	background-image: linear-gradient(45deg, #810ca8, #920192);
+    background-color: #810ca8;
+	color: #fff;
+	padding: 10px;
+	border-radius: 4px;
+}
+.search :is(input, button) {
+	background: transparent;
+	color: inherit;
+	border: none;
+	outline: none;
+}
+.search__input {
+	width: 0;
+	transition: width 0.5s;
+}
+.search__button {
+	display: grid;
+	place-items: center;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+	transition: color 0.25s;
+}
+.search__button:hover {
+	color: #e3e3e3;
+}
+.search:focus-within input {
+	width: 200px;
+}
+::placeholder { 
+	font: inherit;
+	color: #e3e3e3; 
+}
+
+/* TODAS OS COMPONENTES PERTECEM A CONFIGURAÇÃO DA LUPA INTEGRADA */
+/* FIM DA ABA DE PESQUISA */
+
+.menus {
+    background-color: none;
+    position: relative;
+    height: 40px;
+    width: 700px;
+    right: 760px;
+    top: -48px;
+}
+
+.interativos {
+    display: inline-block;
+    letter-spacing: 8px;
+    margin-left: 30px;
+    font-size: 15px;
+    color: #e1e1e1;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color
+}
+
+.color{
+    color: white;
+    font-size: 15px;
+    text-decoration:none;
+    font-family: 'Exo2', sans-serif;
+    font-family: 'Exo2', sans-serif;
+    font-style: bold;
+}
+
+.interativos:focus,
+.interativos:hover {
+    color: #fff;
+}
+
+.interativos:focus:after,
+.interativos:hover:after {
+    width: 100%;
+    left: 0%;
+}
+
+.interativos:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
+}
+/*FIM DA NAVBAR E DOS ELEMENTOS DE PROCURA*/
+/* INICIO DO WIDGET DE NOTIFICAÇÃO */
+
+.notification {
+	position: absolute;
+	bottom: 50px;
+	left: 50px;
+	width: max-content;
+	padding: 20px 15px;              /* CONFIGURA A MENSAGEM ALÉM da Box de fundo */
+	border-radius: 4px;
+	background-color: #141619;
+	color: #f6f5f9;
+	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+	transform: translateY(30px);
+	opacity: 0;
+	visibility: hidden;
+	animation: fade-in 4s linear forwards;
+    font-family: 'Exo2', sans-serif;
+}
+.notification__progress {
+	position: absolute;
+	left: 5px;                 /*CONFIGURA A BARRA DE CARREGAMENTO INFERIOR */
+	bottom: 5px;
+	width: calc(100% - 10px);
+	height: 3px;
+	transform: scaleX(0);
+	transform-origin: left;
+	background-image: linear-gradient(to right, #920192, #810ca8);
+	border-radius: inherit;
+	animation: load 3s 0.25s linear forwards;
+}
+@keyframes fade-in {
+	5% {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+	90% {                               /*CONTROLA AS ANIMAÇÕES DO POPUP */
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+@keyframes load {
+	to {
+		transform: scaleX(1);
+	}
+}
+/* FIM DA AREA DO POPUP */
+/* Inicio do site */
+
+.logo-fundo {
+    height: 500px;
+    width: 100%;
+    opacity: 5%;
+}
+
+.bike {
+    background-color: none;
+    position: relative;
+    height: 500px;
+    top: -520px;
+    left: 270px;
+}
+
+.bicicleta{
+    background-color: none;
+    position: relative;
+    height: 580px;
+    top: -515px;
+    left: 760px; 
+    width: auto;
+    filter: contrast(1), blur(200);
+    filter: drop-shadow(2px 2px 2px black);
+}
+
+/*fim do código da bicicleta */
+/*inicio do código do slogan */
+
+.rotating-text {
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 46px;
+    color: white;
+    transform: translateX(-80px);
+    position: relative;
+    top: -1000px;
+    margin-left: 150px;
+}
+.rotating-text p {
+    display: inline-flexbox;
+    margin: 0;
+    vertical-align: top;
+}
+.rotating-text p .word {
+    position: absolute;
+    display: flex;
+    opacity: 0;
+}
+.rotating-text p .word .letter {
+    transform-origin: center center 25px;
+}
+.rotating-text p .word .letter.out {
+    transform: rotateX(90deg);
+    transition: 0.32s cubic-bezier(0.6, 0, 0.7, 0.2);
+}
+.rotating-text p .word .letter.in {
+    transition: 0.38s ease;
+}
+.rotating-text p .word .letter.behind {
+    transform: rotateX(-90deg);
+}
+
+.w-1 {
+    color: #8e44ad;
+}
+
+.w-2 {
+    color: #8e44ad;
+}
+
+.w-3 {
+    color: #8e44ad;
+}
+
+.w-4 {
+    color: #8e44ad;
+}
+
+.w-5 {
+    color: #8e44ad;
+}
+
+  /* FIM DA AREA DE ANIMAÇÃO DO TEXTO */
+  /* INICIO DA AREA DO SCROOL MOUSE */
+
+.mouse {
+    width: 25px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    display: inline-flex;
+    position: relative;
+    top: -845px;
+    margin-left: 373px;
+}
+.mouse-wheel {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #8e44ad;
+    border-radius: 50%;
+    margin: auto;
+    animation: moveWheel 2.00s linear infinite;
+}
+@keyframes moveWheel {
+    0% {
+        opacity: 0;
+        translate: 0 16px;
+    }
+
+    100% {
+        opacity: 1;
+        translate: 0 -16px;
+    }
+}
+
+.saiba-mais {
+    position: relative;
+    color: white;
+    top: -950px;
+    left: 320px;
+    font-family: 'Exo2', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+/* Fim da parte do saiba mais e da primeira parte */
+/* Inicio da área "Sobre Nós" */
+
+.area-sobre-nós{
+    height: 700px;
+    width: 2000px;
+    right: 10px;
+    position: relative;
+    top: -700px;
+    background: none;
+    filter: blur(2) contrast(200) brightness(100);
+}
+
+.area-1 {
+    background: none;
+    height: 610px;
+    width: 1300px;
+    margin-left: 35px;
+    opacity: 0.9;
+    border-radius: 15px 50px;
+    background-image: none;  
+}
+
+.area-2 {
+    position: relative;
+    background: #1c1c1c;
+    top: 18px;
+    height: 570px;
+    width: 1300px;
+    margin-left: 1px;
+    opacity: 0.2;
+    border-radius: 15px;
+}
+
+.bike-road {
+    position: relative;
+    filter: contrast(1.3) brightness(1);
+    top: 60px;
+    opacity: 10;
+    height: 440px;
+    width: 550px;
+    border-radius: 20px;
+    margin-left: 50px;
+    z-index: 2;
+}
+
+.sobre-text-area {
+    position: absolute;
+    background-color: nonw;
+    height: 100px;
+    width: 100px;
+    margin-left: 645px;
+    top: 35px;
+    height: 500px;
+    width: 570px;
+}
+
+#texto1 {
+    color: white;
+    font-size: 55px;
+    font-family: sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+#texto2 {
+    position: relative;
+    color: purple;
+    font-size: 55px;
+    font-family: sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    top: -111px;
+    left: 310px;
+}
+
+.sobre-nos {
+    color: white;
+    font-family: 'Exo2', sans-serif;
+    letter-spacing: 3px;
+    font-size: 17px;
+    top: -125px;
+    position: relative;
+}
+
+/* FIM DA AREA DE SOBRE NÓS */
+/* INICIO DA AREA DE CONTROLAÇÃO DE EVENTOS */
+
+[data-anime] {
+    opacity: 0;
+    transition: .9s;
+}
+
+[data-anime="left"] {
+    transform: translate3d(-50px, 0, 0);
+}
+
+[data-anime="right"] {
+    transform: translate3d(50px, 0, 0);
+}
+
+[data-anime="top"] {
+    transform: translate3d(0, -50px, 0);
+}
+
+[data-anime].animate {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+/* FIM DA AREA DE ANIMAÇÕES */
+/* INICIO DA PARTE DE LOCAIS ANTES DO APLICATIVO */
+
+.local {
+    background: none;
+    height: 700px;
+    width: 2000px;
+    right: 10px;
+    top: -690px;
+    position: relative;
+    filter: blur(2) contrast(200) brightness(100);
+}
+
+.onde-estamos {
+    color: white;
+    height: 90px;
+    left: 350px;
+    font-size: 40px;
+    letter-spacing: 3px;
+    font-family: sans-serif;
+    font-weight: 600;
+    position: relative;
+    top: 30px;
+}
+
+.onde-estamos-sub {
+    color: white;
+    position: relative;
+    height: 90px;
+    left: 245px;
+    top: -30px;
+    letter-spacing: 2px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+}
+
+.sub-area {
+    background: none;
+    position: relative;
+    top: -60px;
+    height: 400px;
+    width: 1150px;
+    margin-left: 100px;
+}
+
+.atributo-box1{
+    background: #1c1c1c;
+    background-image: url(../imagens/background-dark.png);
+    height: 250px;
+    width: 400px;
+    position: relative;
+    top: -2px;
+    right: 40px;
+    border-radius: 20px;
+}
+
+.habilidade1 {
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    letter-spacing: 5px;
+    position: relative;
+    top: 50px;
+    left: 85px;
+}
+
+.text-habilit1 {
+    color: #a0a0a0;
+    position: relative;
+    text-align: center;
+    top: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.atributo-box2{
+    background: #1c1c1c;
+    background-image: url(../imagens/background-dark.png);
+    height: 250px;
+    width: 400px;
+    position: relative;
+    top: -190px;
+    right: 425px;
+    border-radius: 20px;
+}
+
+.habilidade2 {
+    color: white;
+    font-family: 'Exo2', sans-serif;
+    font-size: 50px;
+    letter-spacing: 5px;
+    position: relative;
+    top: 85px;
+    left: 98px;
+}
+
+.text-habilit2 {
+    color: #a0a0a0;
+    position: relative;
+    text-align: center;
+    top: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.atributo-box3{
+    background: #1c1c1c;
+    background-image: url(../imagens/background-dark.png);
+    height: 250px;
+    width: 400px;
+    position: relative;
+    top: -282px;
+    left: 385px;
+    border-radius: 20px;
+}
+
+.habilidade3 {
+    color: white;
+    font-family: 'Exo2', sans-serif;
+    font-weight: 600;
+    font-size: 45px;
+    letter-spacing: 5px;
+    position: relative;
+    top: 50px;
+    left: 100px;
+}
+
+.text-habilit3 {
+    color: #a0a0a0;
+    position: relative;
+    text-align: center;
+    top: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.atributo-box4{
+    background: white;
+    background-image: url(../imagens/vá-de-bicik.png);
+    background-size: cover;
+    height: 250px;
+    width: 400px;
+    position: relative;
+    top: -187px;
+    left: 420px;
+    border-radius: 20px;
+}
+
+.habilidade4 {
+    opacity: 0;
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    letter-spacing: 5px;
+    position: relative;
+    top: 50px;
+    left: 85px;
+}
+
+.text-habilit4 {
+    opacity: 0;
+    color: #a0a0a0;
+    position: relative;
+    text-align: center;
+    top: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.atributo-box5{
+    background: #1c1c1c;
+    background-image: url(../imagens/side-bike\ \(1\).png);
+    background-position: relative;
+    background-size: cover;
+    height: 250px;
+    width: 400px;
+    position: relative;
+    top: -456px;
+    left: 1px;
+    border-radius: 20px;
+}
+
+.habilidade5 {
+    color: none;
+    opacity: 0;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    letter-spacing: 5px;
+    position: relative;
+    top: 50px;
+    left: 85px;
+}
+
+.text-habilit5 {
+    color: #a0a0a0;
+    opacity: 0;
+    position: relative;
+    text-align: center;
+    top: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.atributo-box6{
+    background: #1c1c1c;
+    background-image: url(../imagens/background-dark.png);
+    height: 250px;
+    width: 400px;
+    position: relative;
+    top: -738px;
+    left: 420px;
+    border-radius: 20px;
+}
+
+.habilidade6 {
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 50px;
+    letter-spacing: 5px;
+    position: relative;
+    top: 70px;
+    left: 130px;
+}
+
+.text-habilit6 {
+    color: #a0a0a0;
+    position: relative;
+    text-align: center;
+    top: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.front-bike {
+    height: 245px;
+    top: 4px;
+    left: 110px;
+    position: relative;
+}
+
+.atributo-box1:hover {
+    box-shadow: 5px 5px #810ca8;
+}
+.atributo-box2:hover {
+    box-shadow: 5px 5px #810ca8;
+}
+.atributo-box3:hover {
+    box-shadow: 5px 5px #810ca8;
+}
+.atributo-box4:hover {
+    box-shadow: 5px 5px #810ca8;
+}
+.atributo-box5:hover {
+    box-shadow: 5px 5px #810ca8;
+}
+.atributo-box6:hover {
+    box-shadow: 5px 5px #810ca8;
+}
+
+/* FIM DA AREA DE VANTAGENS E DA GUIA DE SOBRE NÓS */
+/* INICIO DA ABA DO APLICATIVO */
+
+.app-area {
+    height: 655px;
+    width: 100%;
+    position: relative;
+    background: none;
+    top: -1140px;
+}
+
+.app-text-area {
+    height: 600px;
+    width: 600px;
+    background: none;
+    position: relative;
+    top: 30px;
+    margin-left: 85px;
+    z-index: 2;
+}
+
+.app-demo-area {
+    height: 600px;
+    width: 600px;
+    background: none;
+    position: relative;
+    top: -580px;
+    margin-left: 695px;
+    z-index: 2;
+}
+
+.text-app {
+    color: white;
+    position: relative;
+    font-size: 65px;
+    font-family: 'Exo2', sans-serif;
+    font-weight: 600;
+    top: 70px;
+    z-index: 2;
+}
+
+.sub-text-app {
+    color: white;
+    position: relative;
+    font-size: 20px;
+    top: 50px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    left: 45px;
+    z-index: 2;
+}
+
+.play-logo {
+    position: relative;
+    display: block;
+    height: 95px;
+    top: 70px;
+    z-index: 2;
+}
+
+.play-logo:hover {
+    filter: drop-shadow(4px 4px purple);
+    z-index: 2;
+}
+
+.apple-logo {
+    grid-area: 1fr 1fr 1fr;
+    position: relative;
+    display: block;
+    height: 100px;
+    top: -26px;
+    left: 265px;
+    z-index: 2;
+}
+
+.apple-logo:hover {
+    filter: drop-shadow(4px 4px purple);
+    z-index: 2;
+}
+
+.video-background {
+    position: relative;
+    height: 528px;
+    top: -769px;
+    margin-left: -2px;
+    width: 100%;
+    z-index: 1;
+    border-radius: 20px;
+}
+
+.iphone {
+    position: relative;
+    z-index: 2;
+    right: 100px;
+    height: 800px;
+    top: -100px;
+}
+
+.logo-fundo2 {
+    height: 500px;
+    width: 100%;
+    opacity: 5%;
+    position: relative;
+    top: -550px
+}
+
+/* FIM DA AREA DO APLICATIVO */
+/* INICIO DA AREA DE AJUDA OU ANT MENU */
+
+.ajuda-area-background {
+    background: none;
+    opacity: 1;
+    right: 20px;
+    height: 800px;
+    width: 1550px;
+    top: -1100px;
+    position: relative;
+}
+
+.background-image {
+    opacity: 0.2;
+}
+
+.ajuda-area-texto-principal{
+    position: relative;
+    height: 300px;
+    width: 400px;
+    background-color: none;
+    left: 150px;
+    top: -800px;
+    z-index: 1;
+    opacity: 1;
+}
+
+.ajuda-texto-1 {
+    position: relative;
+    color: white;
+    font-size: 48px;
+    font-family: sans-serif;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.ajuda-texto-1-sub {
+    color: white;
+    font-size: 15px;
+    font-family: sans-serif;
+    top: -15px;
+    position: relative;
+}
+
+
+.background-bike {
+    position: relative;
+    height: 500px;
+    width: 700px;
+    background-color: none;
+    left: 550px;
+    top: -1110px;
+}
+
+.bike-lateral {
+    height: 500px;
+    width: 700px;
+}
+
+.ajuda-texto-2 {
+    position: relative;
+    margin-left: 100px;
+    top: -1110px;
+    height: 200px;
+    width: 1150px;
+    background-color: none;
+}
+
+.ajuda-texto-2-paragrafo {
+    font-size: 15px;
+    color: white;
+    font-family: sans-serif;
+}
+
+/* FIM DA PARTE DE AJUDA */
+/* INICIO DO BANNER */
+
+.banner-area {
+    background-color: white;
+    position: relative;
+    top: -1100px;
+    height: 400px;
+    width: 1500px;
+    right: 4px;
+    background-image: url(../imagens/banner.png);
+}
+
+/* FIM DA AREA DO BANNER */
+/* INICIO DA AREA PARCEIROS */
+
+.parceiros {
+    background-image: none;
+    position: relative;
+    background-color: none;
+    height: 300px;
+    right: 10px;
+    width: 1400px;
+    top: -1100px;
+}
+
+.parceiros-image{
+    margin-left: 190px;
+    margin-top: 20px;
+    height: 200px;
+    width: 1000px;
+}
+
+/*FIM DA AREA DE PARCEIROS */
+/* INICIO DA ULTIMA PARTE DO SITE (FOOTER) */
+
+.final-site{
+    position: relative;
+    top: -1150px;
+    background-color: #1c1c1c;
+    right: 5px;
+    height: 400px;
+    width: 100%;
+}
+
+.bicik {
+    position: relative;
+    height: 35px;
+    width: 100px;
+    margin-left: 90px;
+    margin-top: 60px;
+}
+
+.texto-menu {
+    background-color: none;
+    height: 210px;
+    width: 200px;
+    margin-left: 100px;
+    text-decoration: none;
+}
+
+.final-itens {
+    font-size: 30px;
+    text-decoration: none;
+    list-style: none;
+    letter-spacing: 2px;
+    line-height: 45px;
+}
+
+.itens {
+    text-decoration: none;
+    color: white;
+    font-family: 'Exo2', sans-serif;
+}
+
+.area-texto3{
+    left: 880px;
+    top: -270px;
+    position: relative;
+    height: 300px;
+    width: 300px;
+    background-color: none;
+}
+
+.bicik-ad{
+    height: 300px;
+    width: 300px;
+}
+
+.final-text-area{
+    top: -550px;
+    left: 268px;
+    position: relative;
+    height: 200px;
+    width: 700px;
+    background-color: none;
+}
+
+.final-text{
+    position: relative;
+    margin-top: 90px;
+    position: center;
+    font-size: 30px;
+    font-family: 'Montserrat';
+    letter-spacing: 3px;
+    color: white;
+}
+
+.copyright {
+    margin-top: 100px;
+    margin-left: 160px;
+    color: white;
+    font-family: 'Montserrat';
+    letter-spacing: 4px;
+    font-size: 15px;
+}
